@@ -11,6 +11,10 @@
   copy: src=Dockerfile dest={{ docker_registry_build_dir }}/Dockerfile
   register: dockerfile
 
+- name: pip install docker-py
+  pip:
+    name: docker-py
+
 - name: Build custom docker registry image with config file added
   docker_image:
     name:   registry
